@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt; | MC&#39;s Blog</title>
+  <meta name="keywords" content=" react-router-dom ">
+  <meta name="description" content="ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt; | MC&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;ReactRouterDOM 的 &lt;Link&gt; 组件和 HTML 的 &lt;a&gt; 标签有什么不同？ 相同点 都可以用来创建超链接 都可以设置 href 属性 都可以设置 target 属性  不同点 &lt;Link&gt; 组件是 ReactRouterDOM 提供的组件，可以用来代替">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;">
+<meta property="og:url" content="https://036michael.github.io/2024/07/20/rrdom-vs-HTMLaTag/index.html">
+<meta property="og:site_name" content="MC&#39;s Blog">
+<meta property="og:description" content="ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;ReactRouterDOM 的 &lt;Link&gt; 组件和 HTML 的 &lt;a&gt; 标签有什么不同？ 相同点 都可以用来创建超链接 都可以设置 href 属性 都可以设置 target 属性  不同点 &lt;Link&gt; 组件是 ReactRouterDOM 提供的组件，可以用来代替">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-20T15:38:49.000Z">
+<meta property="article:modified_time" content="2024-07-20T16:18:43.873Z">
+<meta property="article:author" content="MCHAI">
+<meta property="article:tag" content="react-router-dom">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar1.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/sublime.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<script src="/js/custom-iconfont.js?v=1.1.0" ></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar1.png"/>
+</a>
+<div class="author">
+    <span>MCHAI</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/036Michael"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/jin.hui.71/"
+               target="_blank">
+                
+                    <i class="iconfont icon-facebook"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.instagram.com/michael_8181/"
+               target="_blank">
+                
+                    <i class="iconfont icon-instagram"></i>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/mchai2632"
+               target="_blank">
+                
+                    <i class="iconfont icon-reddit"></i>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:kimfei2014@gmail.com"
+               target="_blank">
+                
+                    <i class="iconfont icon-email"></i>
+                
+            </a>
+        
+    
+        
+            <a title="youtube"
+               href="https://www.youtube.com/channel/UC4IAvg0oXfOenRi3RDf3lLg"
+               target="_blank">
+                
+                    <i class="iconfont icon-youtube"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(52)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Study">
+            
+            Study
+            <small>(8)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="后端">
+            
+            后端
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="3D模型">
+            
+            3D模型
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="後端">
+            <i class="fold iconfont icon-right"></i>
+            後端
+            <small>(8)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="後端&lt;---&gt;Python">
+            
+            Python
+            <small>(8)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="前端">
+            <i class="fold iconfont icon-right"></i>
+            前端
+            <small>(20)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="前端&lt;---&gt;BootStrap5">
+            
+            BootStrap5
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="前端&lt;---&gt;CSS">
+            
+            CSS
+            <small>(5)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="前端&lt;---&gt;JavaScript">
+            
+            JavaScript
+            <small>(9)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="前端&lt;---&gt;React">
+            
+            React
+            <small>(4)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="前端&lt;---&gt;Webpack">
+            
+            Webpack
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="資訊安全">
+            
+            資訊安全
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="作業系統">
+            <i class="fold iconfont icon-right"></i>
+            作業系統
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="作業系統&lt;---&gt;SRTF">
+            
+            SRTF
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Adobe">
+            <i class="fold iconfont icon-right"></i>
+            Adobe
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="Adobe&lt;---&gt;Photostop">
+            
+            Photostop
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="AI">
+            <i class="fold iconfont icon-right"></i>
+            AI
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="AI&lt;---&gt;機器學習 ML">
+            
+            機器學習 ML
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Git">
+            
+            Git
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Log日誌">
+            <i class="fold iconfont icon-right"></i>
+            Log日誌
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="Log日誌&lt;---&gt;ELK">
+            
+            ELK
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="PyTorch">
+            
+            PyTorch
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+                <a class="dynamic-menu "
+                   target="_blank"
+                        
+                   href="https://github.com/036Michael">github</a>
+        
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  "
+               target="_blank"
+                    
+               href="https://036michael.github.io/036Michael.blogs.github.io/">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="52">
+<input type="hidden" id="yelog_site_word_count" value="10.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>1</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>3D design</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>3D建模</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>設計工具</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>行程管理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>資訊安全</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>API</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>arguments</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>back-end</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>batch rename</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>blockquote</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>bootstrap5</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>border radius</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>boxshadow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>class / object</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>codeblock</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>coding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cors</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cv2</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>design tools</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DevOps</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dropshadow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ELK</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flexbox</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>front-end</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GPU</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>information security</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>js</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JSON</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>line notify</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>log</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Log</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>md</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>nodejs</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>opencv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>padding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Photostop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PyTorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>React</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>react-router-dom</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SRTF</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>study</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Telnet</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>textshadow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tools</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>top10</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Webpack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>website</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Zabbix</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a id="top" class="All Study "
+           href="/2024/05/10/hello-world/"
+           data-tag="Blog"
+           data-author="" >
+            <span class="post-title" title="開始寫部落格吧！Start writing!">開始寫部落格吧！Start writing!</span>
+            <span class="post-date" title="2024-05-10 15:50:02">2024/05/10</span>
+        </a>
+        
+        
+        <a id="top" class="All Study "
+           href="/2023/10/18/Try-CodeBlock/"
+           data-tag="codeblock,blockquote,md,blog"
+           data-author="" >
+            <span class="post-title" title="Try CodeBlock">Try CodeBlock</span>
+            <span class="post-date" title="2023-10-18 13:02:11">2023/10/18</span>
+        </a>
+        
+        
+        <a id="top" class="All Study "
+           href="/2023/10/13/StudyOptions/"
+           data-tag="study,tools"
+           data-author="" >
+            <span class="post-title" title="學習工具大全 Study Options">學習工具大全 Study Options</span>
+            <span class="post-date" title="2023-10-13 16:01:47">2023/10/13</span>
+        </a>
+        
+        
+        <a  class="All 前端 React "
+           href="/2024/07/20/rrdom-vs-HTMLaTag/"
+           data-tag="react-router-dom"
+           data-author="" >
+            <span class="post-title" title="ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;">ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;</span>
+            <span class="post-date" title="2024-07-20 23:38:49">2024/07/20</span>
+        </a>
+        
+        
+        <a  class="All Git "
+           href="/2024/06/28/git/git-prompt/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="git-prompt">git-prompt</span>
+            <span class="post-date" title="2024-06-28 01:12:00">2024/06/28</span>
+        </a>
+        
+        
+        <a  class="All Study "
+           href="/2024/05/30/website-cors-solve/"
+           data-tag="website,cors"
+           data-author="" >
+            <span class="post-title" title="website-cors-solve">website-cors-solve</span>
+            <span class="post-date" title="2024-05-30 10:09:24">2024/05/30</span>
+        </a>
+        
+        
+        <a  class="All PyTorch "
+           href="/2024/05/10/pyTorch-GPU-%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/"
+           data-tag="PyTorch,GPU"
+           data-author="" >
+            <span class="post-title" title="pyTorch GPU 安裝教學">pyTorch GPU 安裝教學</span>
+            <span class="post-date" title="2024-05-10 14:19:13">2024/05/10</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2024/03/28/react/react-libraries2024/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="React Libraries 2024">React Libraries 2024</span>
+            <span class="post-date" title="2024-03-28 11:44:45">2024/03/28</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2024/03/14/backend/init-backend/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="後端初始環境建制教學 Backend Init">後端初始環境建制教學 Backend Init</span>
+            <span class="post-date" title="2024-03-14 08:43:20">2024/03/14</span>
+        </a>
+        
+        
+        <a  class="All 前端 React "
+           href="/2024/02/21/react/03react-deploy-ghpages/"
+           data-tag="React"
+           data-author="" >
+            <span class="post-title" title="03 reactApp 部署到 github pages">03 reactApp 部署到 github pages</span>
+            <span class="post-date" title="2024-02-21 18:38:02">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="All 前端 React "
+           href="/2024/02/19/react/02react-tool/"
+           data-tag="React"
+           data-author="" >
+            <span class="post-title" title="02 用react 使用html snippet?">02 用react 使用html snippet?</span>
+            <span class="post-date" title="2024-02-19 20:57:46">2024/02/19</span>
+        </a>
+        
+        
+        <a  class="All 前端 React "
+           href="/2024/01/11/react/01-react/"
+           data-tag="React"
+           data-author="" >
+            <span class="post-title" title="01 React.js 初始環境設置步驟教學">01 React.js 初始環境設置步驟教學</span>
+            <span class="post-date" title="2024-01-11 09:32:11">2024/01/11</span>
+        </a>
+        
+        
+        <a  class="All 前端 CSS "
+           href="/2024/01/10/css/04css-center/"
+           data-tag="flex"
+           data-author="" >
+            <span class="post-title" title="CSS 3種div置中方法">CSS 3種div置中方法</span>
+            <span class="post-date" title="2024-01-10 14:04:27">2024/01/10</span>
+        </a>
+        
+        
+        <a  class="All 后端 "
+           href="/2023/12/07/node.js/express-tutorial/"
+           data-tag="nodejs,express"
+           data-author="" >
+            <span class="post-title" title="用Nodejs Express 更改MSSQL賬密">用Nodejs Express 更改MSSQL賬密</span>
+            <span class="post-date" title="2023-12-07 20:10:57">2023/12/07</span>
+        </a>
+        
+        
+        <a  class="All Study "
+           href="/2023/11/29/req-and-res/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="網路基礎-HTTP、Request、Response">網路基礎-HTTP、Request、Response</span>
+            <span class="post-date" title="2023-11-29 14:39:46">2023/11/29</span>
+        </a>
+        
+        
+        <a  class="All Study "
+           href="/2023/11/29/API/"
+           data-tag="API"
+           data-author="" >
+            <span class="post-title" title="什麼是API？">什麼是API？</span>
+            <span class="post-date" title="2023-11-29 14:23:57">2023/11/29</span>
+        </a>
+        
+        
+        <a  class="All Study "
+           href="/2023/11/29/CRUD/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="什么是CRUD？">什么是CRUD？</span>
+            <span class="post-date" title="2023-11-29 14:20:33">2023/11/29</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/11/27/python/python-argu/"
+           data-tag="python,arguments"
+           data-author="" >
+            <span class="post-title" title="Python、argparse 和命令列參數">Python、argparse 和命令列參數</span>
+            <span class="post-date" title="2023-11-27 22:43:52">2023/11/27</span>
+        </a>
+        
+        
+        <a  class="All Adobe Photostop "
+           href="/2023/11/26/photoshop/ps-textInWater/"
+           data-tag="Photostop"
+           data-author="" >
+            <span class="post-title" title="Photoshop 中製作水底文字效果">Photoshop 中製作水底文字效果</span>
+            <span class="post-date" title="2023-11-26 14:26:56">2023/11/26</span>
+        </a>
+        
+        
+        <a  class="All Adobe Photostop "
+           href="/2023/11/26/photoshop/ps-tattoo/"
+           data-tag="Photostop"
+           data-author="" >
+            <span class="post-title" title="Photostop 使用PS建立刺青構圖">Photostop 使用PS建立刺青構圖</span>
+            <span class="post-date" title="2023-11-26 13:33:22">2023/11/26</span>
+        </a>
+        
+        
+        <a  class="All 前端 CSS "
+           href="/2023/11/25/css/top10-css/"
+           data-tag="top10"
+           data-author="" >
+            <span class="post-title" title="Top10 CSS操作">Top10 CSS操作</span>
+            <span class="post-date" title="2023-11-25 00:03:03">2023/11/25</span>
+        </a>
+        
+        
+        <a  class="All 前端 CSS "
+           href="/2023/11/24/css/flexgrow/"
+           data-tag="flexbox"
+           data-author="" >
+            <span class="post-title" title="CSS搞懂 flex-grow, flex-shirk 及 flex-basis 三種屬性">CSS搞懂 flex-grow, flex-shirk 及 flex-basis 三種屬性</span>
+            <span class="post-date" title="2023-11-24 21:29:48">2023/11/24</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/18/Javascripts/js-queryselector/"
+           data-tag="js"
+           data-author="" >
+            <span class="post-title" title="JavaScript .querySelector()">JavaScript .querySelector()</span>
+            <span class="post-date" title="2023-11-18 20:58:26">2023/11/18</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/16/Javascripts/js-JSON-Arrays/"
+           data-tag="JSON"
+           data-author="" >
+            <span class="post-title" title="JSON Array 陣列">JSON Array 陣列</span>
+            <span class="post-date" title="2023-11-16 23:52:45">2023/11/16</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/16/Javascripts/js-JSON-objects/"
+           data-tag="js"
+           data-author="" >
+            <span class="post-title" title="JSON Object 物件">JSON Object 物件</span>
+            <span class="post-date" title="2023-11-16 23:05:44">2023/11/16</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/16/Javascripts/js-JSON-stringify/"
+           data-tag="JSON"
+           data-author="" >
+            <span class="post-title" title="JSON Stringify 字串化">JSON Stringify 字串化</span>
+            <span class="post-date" title="2023-11-16 22:47:09">2023/11/16</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/16/Javascripts/js-Loop-7m/"
+           data-tag="js"
+           data-author="" >
+            <span class="post-title" title="Javascript Loop 循環 7種方法">Javascript Loop 循環 7種方法</span>
+            <span class="post-date" title="2023-11-16 21:17:18">2023/11/16</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/16/Javascripts/js-array-8m/"
+           data-tag="js"
+           data-author="" >
+            <span class="post-title" title="Javascript Array 陣列 8種方法">Javascript Array 陣列 8種方法</span>
+            <span class="post-date" title="2023-11-16 21:09:01">2023/11/16</span>
+        </a>
+        
+        
+        <a  class="All 前端 CSS "
+           href="/2023/11/14/css/03css-border-radius/"
+           data-tag="padding,border radius"
+           data-author="" >
+            <span class="post-title" title="CSS Border Radius">CSS Border Radius</span>
+            <span class="post-date" title="2023-11-14 18:46:41">2023/11/14</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/11/13/python/python-batch-rename-file/"
+           data-tag="python,coding,batch rename"
+           data-author="" >
+            <span class="post-title" title="Python 批次重新命名檔案">Python 批次重新命名檔案</span>
+            <span class="post-date" title="2023-11-13 22:00:38">2023/11/13</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/11/13/python/python-line-notify/"
+           data-tag="python,coding,line notify"
+           data-author="" >
+            <span class="post-title" title="Python Line-Notify">Python Line-Notify</span>
+            <span class="post-date" title="2023-11-13 21:38:38">2023/11/13</span>
+        </a>
+        
+        
+        <a  class="All 前端 CSS "
+           href="/2023/11/13/css/02css-boxshadow/"
+           data-tag="boxshadow,textshadow,dropshadow"
+           data-author="" >
+            <span class="post-title" title="CSS-BoxShadow">CSS-BoxShadow</span>
+            <span class="post-date" title="2023-11-13 08:32:05">2023/11/13</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/09/Javascripts/js-output/"
+           data-tag="js"
+           data-author="" >
+            <span class="post-title" title="Javascript Output 輸出">Javascript Output 輸出</span>
+            <span class="post-date" title="2023-11-09 12:55:04">2023/11/09</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/11/09/Javascripts/js-event/"
+           data-tag="js"
+           data-author="" >
+            <span class="post-title" title="Javascript Event 事件">Javascript Event 事件</span>
+            <span class="post-date" title="2023-11-09 12:29:12">2023/11/09</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/11/08/python/01opencv/"
+           data-tag="1,opencv,cv2,python"
+           data-author="" >
+            <span class="post-title" title="Python OpenCV 圖片處理">Python OpenCV 圖片處理</span>
+            <span class="post-date" title="2023-11-08 23:19:28">2023/11/08</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/11/08/python/03opencv-cam-and-videocap/"
+           data-tag="opencv,cv2,python,3"
+           data-author="" >
+            <span class="post-title" title="Python OpenCV 攝像頭與視頻截取">Python OpenCV 攝像頭與視頻截取</span>
+            <span class="post-date" title="2023-11-08 23:19:28">2023/11/08</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/11/08/python/02opencv-funda/"
+           data-tag="opencv,cv2,python,2"
+           data-author="" >
+            <span class="post-title" title="Python OpenCV 圖片基礎知識&amp;操作">Python OpenCV 圖片基礎知識&amp;操作</span>
+            <span class="post-date" title="2023-11-08 23:19:28">2023/11/08</span>
+        </a>
+        
+        
+        <a  class="All AI 機器學習 ML "
+           href="/2023/11/08/python/02ML/"
+           data-tag="ML,DL,python"
+           data-author="" >
+            <span class="post-title" title="Python 人臉辨識FaceDetection">Python 人臉辨識FaceDetection</span>
+            <span class="post-date" title="2023-11-08 00:04:09">2023/11/08</span>
+        </a>
+        
+        
+        <a  class="All 資訊安全 "
+           href="/2023/11/06/01SIEM/"
+           data-tag="資訊安全,information security"
+           data-author="" >
+            <span class="post-title" title="What is SIEM?">What is SIEM?</span>
+            <span class="post-date" title="2023-11-06 00:24:44">2023/11/06</span>
+        </a>
+        
+        
+        <a  class="All 3D模型 "
+           href="/2023/11/04/3Ddesign/01spline/"
+           data-tag="3D建模,3D design,設計工具,design tools"
+           data-author="" >
+            <span class="post-title" title="Spline 教學">Spline 教學</span>
+            <span class="post-date" title="2023-11-04 00:51:15">2023/11/04</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/10/27/python/pythonClassObject/"
+           data-tag="python,coding,class / object"
+           data-author="" >
+            <span class="post-title" title="02 Python Class&amp;Object">02 Python Class&amp;Object</span>
+            <span class="post-date" title="2023-10-27 09:14:35">2023/10/27</span>
+        </a>
+        
+        
+        <a  class="All Log日誌 "
+           href="/2023/10/26/01Zabbix/"
+           data-tag="log,Zabbix"
+           data-author="" >
+            <span class="post-title" title="Zabbix介紹">Zabbix介紹</span>
+            <span class="post-date" title="2023-10-26 00:51:55">2023/10/26</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2023/10/26/01DevOps/"
+           data-tag="DevOps"
+           data-author="" >
+            <span class="post-title" title="What is DevOps?">What is DevOps?</span>
+            <span class="post-date" title="2023-10-26 00:23:20">2023/10/26</span>
+        </a>
+        
+        
+        <a  class="All Study "
+           href="/2023/10/26/01telnet/"
+           data-tag="Telnet"
+           data-author="" >
+            <span class="post-title" title="What is Telnet?">What is Telnet?</span>
+            <span class="post-date" title="2023-10-26 00:08:50">2023/10/26</span>
+        </a>
+        
+        
+        <a  class="All 前端 BootStrap5 "
+           href="/2023/10/25/bootstrap/01bootstrap/"
+           data-tag="bootstrap5"
+           data-author="" >
+            <span class="post-title" title="01 BootStrap5是什麼？">01 BootStrap5是什麼？</span>
+            <span class="post-date" title="2023-10-25 00:16:59">2023/10/25</span>
+        </a>
+        
+        
+        <a  class="All 作業系統 SRTF "
+           href="/2023/10/24/OS/01SRTF/"
+           data-tag="SRTF,行程管理"
+           data-author="" >
+            <span class="post-title" title="行程管理 Process management">行程管理 Process management</span>
+            <span class="post-date" title="2023-10-24 20:14:51">2023/10/24</span>
+        </a>
+        
+        
+        <a  class="All Log日誌 ELK "
+           href="/2023/10/21/01ELK/"
+           data-tag="Log,ELK"
+           data-author="" >
+            <span class="post-title" title="ELK 介紹">ELK 介紹</span>
+            <span class="post-date" title="2023-10-21 20:46:18">2023/10/21</span>
+        </a>
+        
+        
+        <a  class="All AI 機器學習 ML "
+           href="/2023/10/21/python/01MLearning/"
+           data-tag="ML,DL"
+           data-author="" >
+            <span class="post-title" title="What is Machine Learning?">What is Machine Learning?</span>
+            <span class="post-date" title="2023-10-21 19:27:07">2023/10/21</span>
+        </a>
+        
+        
+        <a  class="All 後端 Python "
+           href="/2023/10/21/python/01python/"
+           data-tag="python,coding"
+           data-author="" >
+            <span class="post-title" title="01 Python Iterator and Iterable">01 Python Iterator and Iterable</span>
+            <span class="post-date" title="2023-10-21 14:07:38">2023/10/21</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2023/10/20/css/01css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="01css">01css</span>
+            <span class="post-date" title="2023-10-20 16:38:59">2023/10/20</span>
+        </a>
+        
+        
+        <a  class="All 前端 JavaScript "
+           href="/2023/10/19/Javascripts/01js/"
+           data-tag="js,front-end,back-end"
+           data-author="" >
+            <span class="post-title" title="什麼是JavaScript?">什麼是JavaScript?</span>
+            <span class="post-date" title="2023-10-19 23:58:05">2023/10/19</span>
+        </a>
+        
+        
+        <a  class="All 前端 Webpack "
+           href="/2023/10/19/01webpack/"
+           data-tag="front-end,Webpack,前端"
+           data-author="" >
+            <span class="post-title" title="什麼是Webpack?">什麼是Webpack?</span>
+            <span class="post-date" title="2023-10-19 23:57:59">2023/10/19</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-rrdom-vs-HTMLaTag" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="前端">前端</a> > 
+            
+            <a  data-rel="前端&lt;---&gt;React">React</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">react-router-dom</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-07-21 00:18:43'>2024-07-20 23:38</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:915</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ReactRouterDOM-vs-HTML"><span class="toc-text">ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%90%8C%E7%82%B9"><span class="toc-text">相同点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-text">不同点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Router-%E7%9A%84-%E7%B5%84%E4%BB%B6%E5%92%8C-HTML-%E7%9A%84-%E6%A8%99%E7%B1%A4%E9%83%BD%E7%94%A8%E6%96%BC%E5%B0%8E%E8%88%AA%EF%BC%8C%E4%BD%86%E5%AE%83%E5%80%91%E6%9C%89%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E7%9A%84%E5%8D%80%E5%88%A5%E3%80%82%E4%BB%A5%E4%B8%8B%E6%98%AF%E4%B8%BB%E8%A6%81%E7%9A%84%E5%B7%AE%E7%95%B0%E5%92%8C%E5%90%84%E8%87%AA%E7%9A%84%E7%89%B9%E9%BB%9E%EF%BC%9A"><span class="toc-text">React Router 的 &lt;Link&gt; 組件和 HTML 的 &lt;a&gt; 標籤都用於導航，但它們有一些重要的區別。以下是主要的差異和各自的特點：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%B0%8E%E8%88%AA%E8%A1%8C%E7%82%BA"><span class="toc-text">1. 導航行為</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%80%A7%E8%83%BD"><span class="toc-text">2. 性能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-URL-%E8%B7%AF%E7%94%B1%E5%8F%83%E6%95%B8"><span class="toc-text">3. URL 路由參數</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E7%8B%80%E6%85%8B%E7%AE%A1%E7%90%86"><span class="toc-text">4. 狀態管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ReactRouterDOM-vs-HTML"><a href="#ReactRouterDOM-vs-HTML" class="headerlink" title="ReactRouterDOM &lt;Link&gt; vs HTML &lt;a&gt;"></a>ReactRouterDOM <code>&lt;Link&gt;</code> vs HTML <code>&lt;a&gt;</code></h1><p>ReactRouterDOM 的 <code>&lt;Link&gt;</code> 组件和 HTML 的 <code>&lt;a&gt;</code> 标签有什么不同？</p>
+<h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><ul>
+<li>都可以用来创建超链接</li>
+<li>都可以设置 <code>href</code> 属性</li>
+<li>都可以设置 <code>target</code> 属性</li>
+</ul>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><ul>
+<li><code>&lt;Link&gt;</code> 组件是 ReactRouterDOM 提供的组件，可以用来代替 <code>&lt;a&gt;</code> 标签，并且可以设置路由跳转。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>to</code> 属性，可以是字符串或者对象，可以设置路由参数。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>activeClassName</code> 属性，可以设置当前路由的样式类名。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>onClick</code> 事件，可以设置点击事件。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>replace</code> 属性，可以设置路由跳转是否替换当前页面。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>prefetch</code> 属性，可以设置是否预加载路由。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>style</code> 属性，可以设置样式。</li>
+<li><code>&lt;Link&gt;</code> 组件可以设置 <code>className</code> 属性，可以设置类名。</li>
+</ul>
+<h2 id="React-Router-的-組件和-HTML-的-標籤都用於導航，但它們有一些重要的區別。以下是主要的差異和各自的特點："><a href="#React-Router-的-組件和-HTML-的-標籤都用於導航，但它們有一些重要的區別。以下是主要的差異和各自的特點：" class="headerlink" title="React Router 的 &lt;Link&gt; 組件和 HTML 的 &lt;a&gt; 標籤都用於導航，但它們有一些重要的區別。以下是主要的差異和各自的特點："></a>React Router 的 <code>&lt;Link&gt;</code> 組件和 HTML 的 <code>&lt;a&gt;</code> 標籤都用於導航，但它們有一些重要的區別。以下是主要的差異和各自的特點：</h2><h1 id="1-導航行為"><a href="#1-導航行為" class="headerlink" title="1. 導航行為"></a>1. 導航行為</h1><p><code>&lt;Link&gt;</code>:</p>
+<ul>
+<li>用於單頁應用程序（SPA）的路由導航，與 React Router 一起使用。</li>
+<li>當用戶點擊 <Link> 時，React Router 會攔截這個事件並更新應用程序的 URL，這樣不會重新加載整個頁面。這意味著頁面會在前端進行路由切換，不會重新加載或刷新頁面，提供更流暢的用戶體驗。</li>
+</ul>
+<pre><code class="jsx">import &#123; Link &#125; from &quot;react-router-dom&quot;;
+
+&lt;Link to=&quot;/about&quot;&gt;Go to About Page&lt;/Link&gt;;
+</code></pre>
+<p>HTML <code>&lt;a&gt;</code>:</p>
+<ul>
+<li>用於多頁應用程序（MPA）的路由導航，與 HTML 的 <code>&lt;a&gt;</code> 标签一起使用。</li>
+<li>當用戶點擊 <a> 時，瀏覽器會重新加載頁面或導航到指定的 URL。這可能會導致整個應用程序或頁面重新加載，並且會中斷 SPA 的用戶體驗。</li>
+</ul>
+<pre><code class="html">&lt;a href=&quot;/about&quot;&gt;Go to About Page&lt;/a&gt;
+</code></pre>
+<h1 id="2-性能"><a href="#2-性能" class="headerlink" title="2. 性能"></a>2. 性能</h1><p><code>&lt;Link&gt;</code>:<br>通常提供更好的性能，因為它僅更新 URL 和應用程序狀態，而不重新加載整個頁面。這有助於保留頁面狀態，減少不必要的資源加載。<br><code>&lt;a&gt;</code>:<br>會觸發頁面的完整重新加載，這會帶來額外的性能開銷，特別是在單頁應用中。</p>
+<h1 id="3-URL-路由參數"><a href="#3-URL-路由參數" class="headerlink" title="3. URL 路由參數"></a>3. URL 路由參數</h1><p><code>&lt;Link&gt;</code>:</p>
+<ul>
+<li>可以設定路由參數，用於傳遞資料到路由。</li>
+</ul>
+<pre><code class="jsx">&lt;Link to=&#123;&#123; pathname: "/about", search: "?id=123" &#125;&#125;&gt;Go to About Page&lt;/Link&gt;
+</code></pre>
+<p><code>&lt;a&gt;</code>:</p>
+<ul>
+<li>無法設定路由參數。</li>
+</ul>
+<pre><code class="html">&lt;a href=&quot;/about?id=123&quot;&gt;Go to About Page&lt;/a&gt;
+</code></pre>
+<h1 id="4-狀態管理"><a href="#4-狀態管理" class="headerlink" title="4. 狀態管理"></a>4. 狀態管理</h1><p><code>&lt;Link&gt;</code>:</p>
+<ul>
+<li><p>可以輕鬆地與 React Router 的其他功能集成，如路由守衛、路由參數等。支持在導航時傳遞狀態和其他屬性。<br><code>&lt;a&gt;</code>:</p>
+</li>
+<li><p>不直接支持 SPA 的狀態管理。需要額外的 JavaScript 來處理頁面狀態和其他邏輯。</p>
+</li>
+</ul>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><ul>
+<li><p>使用 <code>&lt;Link&gt;</code>: 可以設定路由跳转、路由参数、路由样式类名、点击事件、路由跳转是否替换当前页面、是否预加载路由等功能，并且可以代替 <code>&lt;a&gt;</code> 标签。在單頁應用中，用於內部路由導航，不會刷新頁面，更適合 React Router 應用。</p>
+</li>
+<li><p>使用<code>&lt;a&gt;</code>: 適合傳統的 HTML 網頁或需要跳轉到外部鏈接的情況。<br>這些差異有助於選擇最合適的導航方式來達到最佳的用戶體驗。</p>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 kimfei2014@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2023 MC&#39;s Blog | Powered by Hexo | Theme 3-hexo | Theme by yelog |
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    
+    <a class="dynamic-menu " target="_blank"  href="https://github.com/036Michael">github</a>
+    
+</div>
+
+
+</html>
