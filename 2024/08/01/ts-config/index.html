@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CSS-BoxShadow | MC&#39;s Blog</title>
-  <meta name="keywords" content=" boxshadow , textshadow , dropshadow ">
-  <meta name="description" content="CSS-BoxShadow | MC&#39;s Blog">
+  <title>Typescript環境建制（後端 NodeJS） | MC&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Typescript環境建制（後端 NodeJS） | MC&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="官網 Typescipt typescripts 環境建制教學npm install -D typescript @types&#x2F;node npx tsc -v  &#x2F;&#x2F;檢查ts 版本   配置 tsconfig官網配置npm bases 配置 A base TSConfig for working with Node 20.Add the package to your “devDependenci">
 <meta property="og:type" content="article">
@@ -1355,45 +1355,24 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-css/02css-boxshadow" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-ts-config" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">CSS-BoxShadow</h1>
+        <h1 class="article-title">Typescript環境建制（後端 NodeJS）</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="前端">前端</a> > 
-            
-            <a  data-rel="前端&lt;---&gt;CSS">CSS</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color5">boxshadow</a>
-            
-            <a class="color1">textshadow</a>
-            
-            <a class="color1">dropshadow</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-11-13 08:34:52'>2023-11-13 08:32</time>
+            Created At : <time class="date" title='Updated At: 2024-08-01 15:12:18'>2024-08-01 14:59</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:13</span>
+        <span>Count:130</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1412,7 +1391,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#typescripts-%E7%92%B0%E5%A2%83%E5%BB%BA%E5%88%B6%E6%95%99%E5%AD%B8"><span class="toc-text">typescripts 環境建制教學</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-tsconfig"><span class="toc-text">配置 tsconfig</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E9%80%99%E8%A1%8C%E5%8A%A0%E5%88%B0-tsconfig-json"><span class="toc-text">把這行加到 tsconfig.json:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C-tsconfig-json-%E6%9C%83%E9%95%B7%E9%80%99%E6%A8%A3%EF%BC%9A"><span class="toc-text">最後 tsconfig.json 會長這樣：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成~</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1428,8 +1407,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>參考網站：<a target="_blank" rel="noopener" href="http://blog.shihshih.com/drop-shadow-vs-box-shadow/">http://blog.shihshih.com/drop-shadow-vs-box-shadow/</a></p>
+        <p><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">官網 Typescipt</a></p>
+<h1 id="typescripts-環境建制教學"><a href="#typescripts-環境建制教學" class="headerlink" title="typescripts 環境建制教學"></a>typescripts 環境建制教學</h1><pre><code class="bash">npm install -D typescript @types/node
+npx tsc -v  //檢查ts 版本
 
+</code></pre>
+<h2 id="配置-tsconfig"><a href="#配置-tsconfig" class="headerlink" title="配置 tsconfig"></a>配置 tsconfig</h2><p><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">官網配置</a><br><a target="_blank" rel="noopener" href="https://github.com/tsconfig/bases">npm bases 配置</a></p>
+<p>A base TSConfig for working with Node 20.<br>Add the package to your “devDependencies”:</p>
+<pre><code class="bash">npx tsc --init  // 初始化 tsconfig
+npm install -D @tsconfig/node20
+</code></pre>
+<h2 id="把這行加到-tsconfig-json"><a href="#把這行加到-tsconfig-json" class="headerlink" title="把這行加到 tsconfig.json:"></a>把這行加到 <code>tsconfig.json</code>:</h2><pre><code class="json">&quot;extends&quot;: &quot;@tsconfig/node20/tsconfig.json&quot;
+</code></pre>
+<h2 id="最後-tsconfig-json-會長這樣："><a href="#最後-tsconfig-json-會長這樣：" class="headerlink" title="最後 tsconfig.json 會長這樣："></a>最後 <code>tsconfig.json</code> 會長這樣：</h2><pre><code class="json">&#123;
+  &quot;extends&quot;: &quot;@tsconfig/node20/tsconfig.json&quot;,
+  &quot;compilerOptions&quot;: &#123;
+    &quot;outDir&quot;: &quot;dist&quot;,
+    &quot;allowJs&quot;: true,
+    &quot;rootDir&quot;: &quot;src&quot;
+  &#125;,
+  &quot;include&quot;: [&quot;src/**/*&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;]
+&#125;
+</code></pre>
+<h1 id="完成"><a href="#完成" class="headerlink" title="完成~"></a>完成~</h1>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 kimfei2014@gmail.com </span>
     </div>
