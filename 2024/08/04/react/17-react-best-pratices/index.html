@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>01 Python Iterator and Iterable | MC&#39;s Blog</title>
-  <meta name="keywords" content=" python , coding ">
-  <meta name="description" content="01 Python Iterator and Iterable | MC&#39;s Blog">
+  <title>17-react-best-pratices-2024 | MC&#39;s Blog</title>
+  <meta name="keywords" content=" React ">
+  <meta name="description" content="17-react-best-pratices-2024 | MC&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="參考來源 ByteGrad 17 個必要的練習 Constants &#x2F; Hard-coded values &#x2F; Magic values Folder structure Components: when to create them Avoid unnecessary markup (div’s) IMPORTANT: don’t add layout styles to r">
 <meta property="og:type" content="article">
@@ -1402,9 +1402,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-python/01python" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-react/17-react-best-pratices" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">01 Python Iterator and Iterable</h1>
+        <h1 class="article-title">17-react-best-pratices-2024</h1>
     
     <div class="article-meta">
         
@@ -1414,9 +1414,9 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="後端">後端</a> > 
+            <a  data-rel="前端">前端</a> > 
             
-            <a  data-rel="後端&lt;---&gt;Python">Python</a>
+            <a  data-rel="前端&lt;---&gt;React">React</a>
             
         </span>
         
@@ -1424,21 +1424,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">python</a>
-            
-            <a class="color2">coding</a>
+            <a class="color1">React</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-10-27 12:26:47'>2023-10-21 14:07</time>
+            Created At : <time class="date" title='Updated At: 2024-08-04 14:06:37'>2024-08-04 13:37</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:121</span>
+        <span>Count:189</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1457,7 +1455,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Iterator%E8%AA%9E%E6%B3%95"><span class="toc-text">Iterator語法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StopIteration-%E5%81%9C%E6%AD%A2%E8%BF%AD%E4%BB%A3"><span class="toc-text">StopIteration 停止迭代</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stop-after-20-iterations"><span class="toc-text">Stop after 20 iterations:</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#17-%E5%80%8B%E5%BF%85%E8%A6%81%E7%9A%84%E7%B7%B4%E7%BF%92"><span class="toc-text">17 個必要的練習</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90%EF%BC%9A"><span class="toc-text">總結：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1473,49 +1471,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>參考網站：<br><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_iterators.asp">https://www.w3schools.com/python/python_iterators.asp</a><br><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/iterators-in-python/">https://www.geeksforgeeks.org/iterators-in-python/</a></p>
-<h1 id="Iterator語法"><a href="#Iterator語法" class="headerlink" title="Iterator語法"></a>Iterator語法</h1><pre><code>
-class MyNumbers:
-  def __iter__(self):
-    self.a &#x3D; 1
-    return self
-
-  def __next__(self):
-    x &#x3D; self.a
-    self.a +&#x3D; 1
-    return x
-
-myclass &#x3D; MyNumbers()
-myiter &#x3D; iter(myclass)
-
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-
-</code></pre>
-
-<h1 id="StopIteration-停止迭代"><a href="#StopIteration-停止迭代" class="headerlink" title="StopIteration 停止迭代"></a>StopIteration 停止迭代</h1><h3 id="Stop-after-20-iterations"><a href="#Stop-after-20-iterations" class="headerlink" title="Stop after 20 iterations:"></a>Stop after 20 iterations:</h3><pre><code>
-class MyNumbers:
-  def __iter__(self):
-    self.a &#x3D; 1
-    return self
-
-  def __next__(self):
-    if self.a &lt;&#x3D; 20:
-      x &#x3D; self.a
-      self.a +&#x3D; 1
-      return x
-    else:
-      raise StopIteration
-
-myclass &#x3D; MyNumbers()
-myiter &#x3D; iter(myclass)
-
-for x in myiter:
-  print(x)
-</code></pre>
+        <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5r25Y9Vg2P4">參考來源 ByteGrad</a></p>
+<h1 id="17-個必要的練習"><a href="#17-個必要的練習" class="headerlink" title="17 個必要的練習"></a>17 個必要的練習</h1><ol>
+<li>Constants &#x2F; Hard-coded values &#x2F; Magic values</li>
+<li>Folder structure</li>
+<li>Components: when to create them</li>
+<li>Avoid unnecessary markup (div’s)</li>
+<li>IMPORTANT: don’t add layout styles to reusable component</li>
+<li>Use TypeScript (why &amp; where in React)</li>
+<li>IMPORTANT: Keep components simple (children pattern, updater function for useState)</li>
+<li>IMPORTANT: Don’t use setter function from useState, instead create a separate event handler function</li>
+<li>IMPORTANT: Naming props (when prop is a function)</li>
+<li>useMemo, useCallback &amp; React.memo() for performance</li>
+<li>When to use updater function from useState</li>
+<li>Use single state instead of multiple states</li>
+<li>IMPORTANT: one source of truth in programming. Keep track of a ‘selected’ or ‘active’ item by its id., NOT its whole object!</li>
+<li>IMPORTANT: use the URL for some state (filters, pagination, etc.), not useState</li>
+<li>Keep useEffect simple: one concern per useEffect</li>
+<li>IMPORTANT: instead of fetching data in useEffect, consider alternatives</li>
+<li>IMPORTANT: improve overall structure with components, custom hooks and utility functions</li>
+</ol>
+<h1 id="總結："><a href="#總結：" class="headerlink" title="總結："></a>總結：</h1><ol>
+<li>不要害怕創建 Components，就算是 not reuseable，因為 Components 使你的程式碼更乾淨。</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 kimfei2014@gmail.com </span>
