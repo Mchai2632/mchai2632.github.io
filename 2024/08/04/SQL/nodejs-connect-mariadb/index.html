@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>什麼是Webpack? | MC&#39;s Blog</title>
-  <meta name="keywords" content=" front-end , Webpack , 前端 ">
-  <meta name="description" content="什麼是Webpack? | MC&#39;s Blog">
+  <title>使用 nodejs 連接MariaDB | MC&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="使用 nodejs 連接MariaDB | MC&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="參考來源 Code Example: Batching DMLconst mariadb &#x3D; require(&quot;mariadb&quot;);  &#x2F;&#x2F; Main function async function main() &amp;#123;   let conn;    try &amp;#123;     conn &#x3D; await mariadb.createConnection(&amp;#123;">
 <meta property="og:type" content="article">
@@ -1419,45 +1419,24 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-01webpack" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-SQL/nodejs-connect-mariadb" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">什麼是Webpack?</h1>
+        <h1 class="article-title">使用 nodejs 連接MariaDB</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="前端">前端</a> > 
-            
-            <a  data-rel="前端&lt;---&gt;Webpack">Webpack</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color5">front-end</a>
-            
-            <a class="color3">Webpack</a>
-            
-            <a class="color3">前端</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-10-21 19:19:44'>2023-10-19 23:57</time>
+            Created At : <time class="date" title='Updated At: 2024-08-04 18:28:36'>2024-08-04 18:27</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:0</span>
+        <span>Count:147</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1476,7 +1455,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Code-Example-Batching-DML"><span class="toc-text">Code Example: Batching DML</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1492,7 +1471,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><a target="_blank" rel="noopener" href="https://mariadb.com/docs/server/connect/programming-languages/nodejs/promise/batch/">參考來源</a></p>
+<h1 id="Code-Example-Batching-DML"><a href="#Code-Example-Batching-DML" class="headerlink" title="Code Example: Batching DML"></a>Code Example: Batching DML</h1><pre><code class="js">const mariadb = require(&quot;mariadb&quot;);
+
+// Main function
+async function main() &#123;
+  let conn;
+
+  try &#123;
+    conn = await mariadb.createConnection(&#123;
+      host: &quot;192.0.2.50&quot;,
+      user: &quot;db_user&quot;,
+      password: &quot;db_user_password&quot;,
+      database: &quot;test&quot;,
+    &#125;);
+
+    //Declare a JSON array for data to add
+    var contacts = [
+      [&quot;John&quot;, &quot;Smith&quot;, &quot;john.smith@example.com&quot;],
+      [&quot;Jon&quot;, &quot;Smith&quot;, &quot;jon.smith@example.com&quot;],
+      [&quot;Johnny&quot;, &quot;Smith&quot;, &quot;johnny.smith@example.com&quot;],
+    ];
+
+    // Use Connection to Add Contacts in Batch
+    await add_contacts(conn, contacts);
+  &#125; catch (err) &#123;
+    // Manage Errors
+    console.log(err);
+  &#125; finally &#123;
+    // Close Connection
+    if (conn) conn.close();
+  &#125;
+&#125;
+
+async function add_contacts(conn, data) &#123;
+  return conn.batch(
+    &quot;INSERT INTO test.contacts(first_name, last_name, email) VALUES (?, ?, ?)&quot;,
+    data
+  );
+&#125;
+
+main();
+</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 kimfei2014@gmail.com </span>
     </div>

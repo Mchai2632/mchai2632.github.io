@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>什麼是Webpack? | MC&#39;s Blog</title>
-  <meta name="keywords" content=" front-end , Webpack , 前端 ">
-  <meta name="description" content="什麼是Webpack? | MC&#39;s Blog">
+  <title>mariadb-GUI | MC&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="mariadb-GUI | MC&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="參考來源 Code Example: Batching DMLconst mariadb &#x3D; require(&quot;mariadb&quot;);  &#x2F;&#x2F; Main function async function main() &amp;#123;   let conn;    try &amp;#123;     conn &#x3D; await mariadb.createConnection(&amp;#123;">
 <meta property="og:type" content="article">
@@ -1419,45 +1419,24 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-01webpack" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-SQL/mariadb-GUI" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">什麼是Webpack?</h1>
+        <h1 class="article-title">mariadb-GUI</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="前端">前端</a> > 
-            
-            <a  data-rel="前端&lt;---&gt;Webpack">Webpack</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color5">front-end</a>
-            
-            <a class="color3">Webpack</a>
-            
-            <a class="color3">前端</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-10-21 19:19:44'>2023-10-19 23:57</time>
+            Created At : <time class="date" title='Updated At: 2024-08-04 18:24:13'>2024-08-04 18:19</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:0</span>
+        <span>Count:56</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1476,7 +1455,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-CMD"><span class="toc-text">使用 CMD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%E3%80%81%E9%80%B2%E5%85%A5-Mariadb-%E7%9A%84-bin-%E6%96%87%E4%BB%B6%E5%A4%BE"><span class="toc-text">步驟 1、進入 Mariadb 的 bin 文件夾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%E3%80%81%E8%BC%B8%E5%85%A5%E8%B3%AC%E5%AF%86"><span class="toc-text">步驟 2、輸入賬密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%E5%AE%8C%E7%95%A2%E5%BE%8C%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E9%96%8B%E5%A7%8B%E5%95%A6%EF%BC%81"><span class="toc-text">輸入完畢後，就可以開始啦！</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1492,7 +1471,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="使用-CMD"><a href="#使用-CMD" class="headerlink" title="使用 CMD"></a>使用 CMD</h1><h2 id="步驟-1、進入-Mariadb-的-bin-文件夾"><a href="#步驟-1、進入-Mariadb-的-bin-文件夾" class="headerlink" title="步驟 1、進入 Mariadb 的 bin 文件夾"></a>步驟 1、進入 Mariadb 的 bin 文件夾</h2><pre><code class="cmd">cd C:\Program Files\MariaDB 11.4\bin
+</code></pre>
+<h2 id="步驟-2、輸入賬密"><a href="#步驟-2、輸入賬密" class="headerlink" title="步驟 2、輸入賬密"></a>步驟 2、輸入賬密</h2><pre><code class="cmd">mariadb -h localhost -u root -ppassword database_name
+</code></pre>
+<h2 id="輸入完畢後，就可以開始啦！"><a href="#輸入完畢後，就可以開始啦！" class="headerlink" title="輸入完畢後，就可以開始啦！"></a>輸入完畢後，就可以開始啦！</h2><p>記得使用 use [database name]</p>
+<pre><code class="sql">use database_name
+</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以邮件至 kimfei2014@gmail.com </span>
     </div>
